@@ -49,7 +49,6 @@ client.capabilityCheck({optional:[], required:['relative_root']},
 
     client.command(['watch-project', dir_of_interest],
     function (error, resp) {
-      console.log('resp', resp)
         if (error) {
           console.error('Error initiating watch:', error)
           return
