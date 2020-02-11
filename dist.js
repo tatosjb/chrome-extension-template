@@ -1,4 +1,4 @@
-const execSync = require("child_process").execSync
+const execSync = require('child_process').execSync
 const fs = require('fs-extra')
 const AdmZip = require('adm-zip')
 const zip = new AdmZip()
@@ -6,13 +6,13 @@ const manifestPath = './src/manifest.json'
 const manifest = fs.readJSONSync(manifestPath)
 const semver = require('semver')
 
-function getReleaseType(args) {
-  if(args.includes('patch')) return 'patch'
-  if(args.includes('minor')) return 'minor'
-  if(args.includes('major')) return 'major'
+function getReleaseType (args) {
+  if (args.includes('patch')) return 'patch'
+  if (args.includes('minor')) return 'minor'
+  if (args.includes('major')) return 'major'
 }
 
-if(!process.argv.some(arg => ['patch', 'minor', 'major'].includes(arg))){
+if (!process.argv.some(arg => ['patch', 'minor', 'major'].includes(arg))) {
   throw new Error('You must inform patch, minor or major to generate the version')
 }
 
