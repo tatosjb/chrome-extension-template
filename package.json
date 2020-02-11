@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d build --copy-files",
-    "dist": "NODE_ENV=production babel src -d build --copy-files",
+    "patch": "NODE_ENV=production babel src -d build --copy-files && node dist.js patch",
+    "minor": "NODE_ENV=production babel src -d build --copy-files && node dist.js minor",
+    "major": "NODE_ENV=production babel src -d build --copy-files && node dist.js major",
     "watch": "node watchman.js"
   },
   "devDependencies": {
