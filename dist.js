@@ -18,6 +18,7 @@ if (!process.argv.some(arg => ['patch', 'minor', 'major'].includes(arg))) {
 
 const releaseType = getReleaseType(process.argv)
 manifest.version = semver.inc(manifest.version, releaseType)
+
 console.log('Generating version', manifest.version)
 fs.writeFileSync(manifestPath, Buffer.from(JSON.stringify(manifest, null, 2)))
 

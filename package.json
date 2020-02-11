@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn webpack --config webpack.dev.js",
-    "patch": "NODE_ENV=production babel src -d build --copy-files && node dist.js patch",
-    "minor": "NODE_ENV=production babel src -d build --copy-files && node dist.js minor",
-    "major": "NODE_ENV=production babel src -d build --copy-files && node dist.js major",
+    "patch": "yarn webpack --config webpack.prod.js && node dist.js patch",
+    "minor": "yarn webpack --config webpack.prod.js && node dist.js minor",
+    "major": "yarn webpack --config webpack.prod.js && node dist.js major",
     "watch": "node watchman.js"
   },
   "devDependencies": {
