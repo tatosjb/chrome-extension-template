@@ -7,7 +7,7 @@ const dirOfInterest = path.join(__dirname, 'src')
 
 function makeSubscription (client, watch, relativePath) {
   const sub = {
-    expression: ['allof', ['match', '*.js']],
+    expression: ['allof', ['match', '*.*']],
     fields: ['name', 'size', 'mtime_ms', 'exists', 'type']
   }
 
@@ -27,15 +27,10 @@ function makeSubscription (client, watch, relativePath) {
   client.on('subscription', function (resp) {
     if (resp.subscription !== 'mysubscription') return
 
-    resp.files.forEach(function (file) {
-      const mtimeMs = +file.mtime_ms
-
-      console.log('file changed: ' + file.name, mtimeMs)
-      const response = execSync('yarn build', {
-        cwd: process.cwd()
-      })
-      console.log(String(response))
+    const response = execSync('yarn build', {
+      cwd: process.cwd()
     })
+    console.log(String(response))
   })
 }
 
