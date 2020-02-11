@@ -6,14 +6,18 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d build --copy-files",
+    "dist": "NODE_ENV=production babel src -d build --copy-files",
     "watch": "node watchman.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
+    "adm-zip": "^0.4.14",
+    "babel-minify": "^0.5.1",
     "babel-preset-minify": "^0.5.1",
     "fb-watchman": "^2.0.1",
-    "babel-minify": "^0.5.1"
+    "fs-extra": "^8.1.0",
+    "semver": "^7.1.2"
   }
 }
