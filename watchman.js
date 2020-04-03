@@ -1,6 +1,5 @@
 const watchman = require('fb-watchman')
 const path = require('path')
-const execSync = require('child_process').execSync
 const spawn = require('child_process').spawn
 const client = new watchman.Client()
 
