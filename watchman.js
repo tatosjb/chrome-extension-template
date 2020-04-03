@@ -1,6 +1,7 @@
 const watchman = require('fb-watchman')
 const path = require('path')
 const execSync = require('child_process').execSync
+const spawn = require('child_process').spawn
 const client = new watchman.Client()
 
 const dirOfInterest = path.join(__dirname, 'src')
@@ -25,12 +26,16 @@ function makeSubscription (client, watch, relativePath) {
     })
 
   client.on('subscription', function (resp) {
-    if (resp.subscription !== 'mysubscription') return
+    try {
+      console.clear()
+      if (resp.subscription !== 'mysubscription') return
 
-    const response = execSync('yarn build', {
-      cwd: process.cwd()
-    })
-    console.log(String(response))
+      const child = spawn('yarn', ['build', '--color=always'])
+      child.stdout.on('data', function (data) { process.stdout.write(data.toString()) });
+      child.stderr.on('data', function (data) { process.stdout.write(data.toString()) });
+    } catch (error) {
+      console.error(error)
+    }
   })
 }
 
