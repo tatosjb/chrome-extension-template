@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn webpack --config webpack.dev.js",
-    "patch": "yarn webpack --config webpack.prod.js && node dist.js patch",
-    "minor": "yarn webpack --config webpack.prod.js && node dist.js minor",
-    "major": "yarn webpack --config webpack.prod.js && node dist.js major",
+    "patch": "node dist.js patch",
+    "minor": "node dist.js minor",
+    "major": "node dist.js major",
     "watch": "node watchman.js"
   },
   "devDependencies": {
