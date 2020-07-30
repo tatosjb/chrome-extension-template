@@ -28,7 +28,7 @@
     "fb-watchman": "^2.0.1",
     "fs-extra": "^9.0.1",
     "semver": "^7.3.2",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
