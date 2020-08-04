@@ -14,6 +14,15 @@ module.exports = {
     path: path.resolve(__dirname, 'build')
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: 'src', ignore: ['*.js'] }])
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src',
+          globOptions: {
+            ignore: [ '*.js' ]
+          }
+        }
+      ]
+    })
   ]
 }
