@@ -4,7 +4,7 @@
 
 Load de extension on `./build` path. This is the path where the build was placed.
 
-## To develovop using this
+## To develovop use this
 
 Start the watch using `yarn watch`, it will watch your project and build, every time you make any change
 
