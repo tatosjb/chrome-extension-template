@@ -19,7 +19,7 @@
     "babel-minify": "^0.5.1",
     "babel-preset-minify": "^0.5.1",
     "copy-webpack-plugin": "^6.2.1",
-    "eslint": "^7.12.0",
+    "eslint": "^7.12.1",
     "eslint-config-standard": "^15.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
