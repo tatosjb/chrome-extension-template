@@ -5547,10 +5547,10 @@ webpack-merge@^4.2.2:
   dependencies:
     lodash "^4.17.15"
 
-webpack-merge@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.4.0.tgz#81bef0a7d23fc1e6c24b06ad8bf22ddeb533a3a3"
-  integrity sha512-/scBgu8LVPlHDgqH95Aw1xS+L+PHrpHKOwYVGFaNOQl4Q4wwwWDarwB1WdZAbLQ24SKhY3Awe7VZGYAdp+N+gQ==
+webpack-merge@^5.6.1:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.6.1.tgz#93c886a6871486a799e5dd32d312008109694b5b"
+  integrity sha512-5n19s1YcyQkBJkYtE+Tq3br/Ax6ofQjMA4U8PUfpcaRB2cvxJNoikUK4RQN3sEJt1Fl4Dym3qc2AnODgGK0vKg==
   dependencies:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
