@@ -18,7 +18,7 @@
     "adm-zip": "^0.5.1",
     "babel-minify": "^0.5.1",
     "babel-preset-minify": "^0.5.1",
-    "copy-webpack-plugin": "^6.3.2",
+    "copy-webpack-plugin": "^7.0.0",
     "eslint": "^7.15.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
