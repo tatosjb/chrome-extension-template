@@ -1,4 +1,4 @@
-# This is a model of chrome extension project
+# This is a template of chrome extension project
 
 ## How to use
 
