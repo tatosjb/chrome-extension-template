@@ -15,7 +15,7 @@
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "adm-zip": "^0.5.1",
+    "adm-zip": "^0.5.2",
     "babel-minify": "^0.5.1",
     "babel-preset-minify": "^0.5.1",
     "copy-webpack-plugin": "^7.0.0",
