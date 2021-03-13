@@ -1,13 +1,13 @@
-const execSync = require('child_process').execSync
-const spawnSync = require('child_process').spawnSync
-const fs = require('fs-extra')
-const AdmZip = require('adm-zip')
+import { execSync, spawnSync } from 'child_process'
+
+import fs from 'fs-extra'
+import AdmZip from 'adm-zip'
+import semver from 'semver'
 const zip = new AdmZip()
 const manifestPath = './src/manifest.json'
 const manifest = fs.readJSONSync(manifestPath)
-const semver = require('semver')
 
-function getReleaseType(args) {
+function getReleaseType (args) {
   if (args.includes('patch')) return 'patch'
   if (args.includes('minor')) return 'minor'
   if (args.includes('major')) return 'major'
@@ -23,11 +23,13 @@ manifest.version = semver.inc(manifest.version, releaseType)
 console.log('Generating version', manifest.version)
 fs.writeFileSync(manifestPath, Buffer.from(JSON.stringify(manifest, null, 2)))
 
-execSync(`git add src/manifest.json && git commit -m 'Version-${manifest.version}'`, {
-  cwd: process.cwd()
-})
+if(process.env.BUILD_ENV !== 'CI'){
+  execSync(`git add src/manifest.json && git commit -m 'Version-${manifest.version}'`, {
+    cwd: process.cwd()
+  })
+}
 
-const child = spawnSync('yarn', ['build', '--color=always'])
+const child = spawnSync('yarn', ['build', '--color'])
 zip.addLocalFolder('./build')
 
 fs.ensureDirSync('./packages')

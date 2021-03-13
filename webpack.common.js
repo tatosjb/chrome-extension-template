@@ -1,7 +1,7 @@
-const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+import path from 'path'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 
-module.exports = {
+export default {
   mode: 'production',
   entry: {
     background: './src/scripts/background.js',
@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     filename: 'scripts/[name].js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(path.resolve(), 'build')
   },
   plugins: [
     new CopyWebpackPlugin({
@@ -19,7 +19,7 @@ module.exports = {
         {
           from: 'src',
           globOptions: {
-            ignore: [ '*.js' ]
+            ignore: ['*.js']
           }
         }
       ]

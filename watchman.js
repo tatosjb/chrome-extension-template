@@ -1,67 +1,55 @@
-const watchman = require('fb-watchman')
-const path = require('path')
-const spawn = require('child_process').spawn
-const rmdirSync = require('fs').rmdirSync
-const client = new watchman.Client()
+import path from 'path'
+import { spawn } from 'child_process'
+import { rmdirSync } from 'fs'
+import chokidar from 'chokidar'
 
-const dirOfInterest = path.join(__dirname, 'src')
+const dirOfInterest = path.join(path.resolve(), 'src')
 
-function makeSubscription(client, watch, relativePath) {
-  const sub = {
-    expression: ['allof', ['match', '*.*']],
-    fields: ['name', 'size', 'mtime_ms', 'exists', 'type'],
+function performBuild () {
+  try {
+    rmdirSync('./build', { recursive: true })
+    console.clear()
+
+    const child = spawn('yarn', ['build', '--color'])
+    child.stdout.on('data', function (data) {
+      process.stdout.write(data.toString())
+    })
+    child.stderr.on('data', function (data) {
+      process.stdout.write(data.toString())
+    })
+  } catch (error) {
+    console.error(error)
   }
-
-  if (relativePath) {
-    sub.relative_root = relativePath
-  }
-
-  client.command(['subscribe', watch, 'mysubscription', sub], function (error, resp) {
-    if (error) {
-      console.error('failed to subscribe: ', error)
-      return
-    }
-    console.log('subscription ' + resp.subscribe + ' established')
-  })
-
-  client.on('subscription', function (resp) {
-    try {
-      rmdirSync('./build', { recursive: true })
-      console.clear()
-      if (resp.subscription !== 'mysubscription') return
-
-      const child = spawn('yarn', ['build', '--color=always'])
-      child.stdout.on('data', function (data) {
-        process.stdout.write(data.toString())
-      })
-      child.stderr.on('data', function (data) {
-        process.stdout.write(data.toString())
-      })
-    } catch (error) {
-      console.error(error)
-    }
-  })
 }
 
-client.capabilityCheck({ optional: [], required: ['relative_root'] }, function (error, resp) {
-  if (error) {
-    console.log(error)
-    client.end()
-    return
-  }
+function watch () {
+  performBuild()
 
-  client.command(['watch-project', dirOfInterest], function (error, resp) {
-    if (error) {
-      console.error('Error initiating watch:', error)
-      return
+  const watcher = chokidar.watch(dirOfInterest, {
+    ignored: '**/*.html',
+    ignoreInitial: true,
+    persistent: true,
+    followSymlinks: true,
+    interval: 100,
+    awaitWriteFinish: {
+      stabilityThreshold: 2000,
+      pollInterval: 100
     }
-
-    if ('warning' in resp) {
-      console.log('warning: ', resp.warning)
-    }
-
-    console.log('watch established on ', resp.watch, ' relative_path', resp.relative_path)
-
-    makeSubscription(client, resp.watch, resp.relative_path)
   })
-})
+
+  watcher
+    .on('add', function (path) {
+      performBuild()
+    })
+    .on('change', function (path) {
+      performBuild()
+    })
+    .on('unlink', function (path) {
+      performBuild()
+    })
+    .on('error', error => console.log(`Watcher error: ${error}`))
+
+  return watcher
+}
+
+watch()
