@@ -1,0 +1,44 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: webpack
+    versions:
+    - 5.19.0
+    - 5.20.0
+    - 5.20.1
+    - 5.20.2
+    - 5.21.0
+    - 5.21.1
+    - 5.22.0
+    - 5.24.1
+    - 5.25.1
+    - 5.26.0
+    - 5.26.1
+    - 5.26.2
+    - 5.27.0
+    - 5.27.1
+    - 5.27.2
+    - 5.31.0
+    - 5.31.1
+    - 5.31.2
+    - 5.35.0
+    - 5.36.0
+  - dependency-name: "@babel/preset-env"
+    versions:
+    - 7.12.16
+    - 7.13.8
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.12.16
+    - 7.13.0
+  - dependency-name: "@babel/cli"
+    versions:
+    - 7.12.16
+  - dependency-name: eslint-plugin-promise
+    versions:
+    - 4.3.0
