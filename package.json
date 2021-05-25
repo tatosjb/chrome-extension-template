@@ -20,7 +20,7 @@
     "babel-minify": "^0.5.1",
     "babel-preset-minify": "^0.5.1",
     "chokidar": "^3.5.1",
-    "copy-webpack-plugin": "^8.1.1",
+    "copy-webpack-plugin": "^9.0.0",
     "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.2",
