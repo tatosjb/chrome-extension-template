@@ -16,7 +16,7 @@
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
-    "adm-zip": "^0.5.6",
+    "adm-zip": "^0.5.9",
     "babel-minify": "^0.5.1",
     "babel-preset-minify": "^0.5.1",
     "chokidar": "^3.5.2",
