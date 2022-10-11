@@ -15,7 +15,7 @@
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-env": "^7.19.4",
     "adm-zip": "^0.5.9",
     "babel-minify": "^0.5.1",
     "babel-preset-minify": "^0.5.1",
