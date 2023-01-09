@@ -17,7 +17,7 @@
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "adm-zip": "^0.5.9",
-    "babel-minify": "^0.5.1",
+    "babel-minify": "^0.5.2",
     "babel-preset-minify": "^0.5.2",
     "chokidar": "^3.5.3",
     "copy-webpack-plugin": "^10.2.4",

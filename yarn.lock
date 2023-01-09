@@ -1555,13 +1555,13 @@ babel-helper-to-multiple-sequence-expressions@^0.5.0:
   resolved "https://registry.yarnpkg.com/babel-helper-to-multiple-sequence-expressions/-/babel-helper-to-multiple-sequence-expressions-0.5.0.tgz#a3f924e3561882d42fcf48907aa98f7979a4588d"
   integrity sha512-m2CvfDW4+1qfDdsrtf4dwOslQC3yhbgyBFptncp4wvtdrDHqueW7slsYv4gArie056phvQFhT2nRcGS4bnm6mA==
 
-babel-minify@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/babel-minify/-/babel-minify-0.5.1.tgz#dcb8bfe22fcf4bb911dac97ba2987464ee59eeed"
-  integrity sha512-ftEYu5OCDXEqaX/eINIaekPgkCaVPJNwFHzXKKARnRLggK8g4a9dEOflLKDgRNYOwhcLVoicUchZG6FYyOpqSA==
+babel-minify@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/babel-minify/-/babel-minify-0.5.2.tgz#21be0c75419080c7adfc740246e0c6834c32993c"
+  integrity sha512-H1ExfmvTxKWQZYcty1My6XRhoZm04/5MNb2DdZsC08r7y/rowipC0s9sszKA7jgW9mYYDdFnU68XohB+zP35qQ==
   dependencies:
     "@babel/core" "^7.1.0"
-    babel-preset-minify "^0.5.1"
+    babel-preset-minify "^0.5.2"
     fs-readdir-recursive "^1.1.0"
     lodash "^4.17.11"
     mkdirp "^0.5.1"
@@ -1727,7 +1727,7 @@ babel-plugin-transform-undefined-to-void@^6.9.4:
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-undefined-to-void/-/babel-plugin-transform-undefined-to-void-6.9.4.tgz#be241ca81404030678b748717322b89d0c8fe280"
   integrity sha1-viQcqBQEAwZ4t0hxcyK4nQyP4oA=
 
-babel-preset-minify@^0.5.1, babel-preset-minify@^0.5.2:
+babel-preset-minify@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/babel-preset-minify/-/babel-preset-minify-0.5.2.tgz#4d5be8b1c21d126ac403a3fd002d8b5fb7bb3c34"
   integrity sha512-v4GL+kk0TfovbRIKZnC3HPbu2cAGmPAby7BsOmuPdMJfHV+4FVdsGXTH/OOGQRKYdjemBuL1+MsE6mobobhe9w==
